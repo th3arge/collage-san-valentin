@@ -1,0 +1,161 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== FONDO SUAVE SAN VALENTÍN ===== */
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #ffe6ec, #ffd6e0, #fff0f5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #5a1a2e;
+  overflow-x: hidden;
+}
+
+/* ===== CONTENEDOR ===== */
+.contenedor {
+  width: 95%;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 30px;
+  padding: 30px;
+  box-shadow: 0 30px 60px rgba(255, 182, 193, 0.45);
+  animation: aparecer 1s ease;
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== TÍTULO ===== */
+h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #c9184a;
+  animation: latidoSuave 2.5s infinite;
+}
+
+@keyframes latidoSuave {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+}
+
+/* ===== SUBIDA ===== */
+.subida {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+input[type="file"] {
+  background: #fff;
+  padding: 10px;
+  border-radius: 12px;
+  border: 1px solid #ffb3c6;
+  width: 100%;
+  max-width: 320px;
+}
+
+button {
+  background: linear-gradient(135deg, #ff758f, #ffb3c6);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 25px rgba(255, 117, 143, 0.5);
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 15px 35px rgba(255, 117, 143, 0.7);
+}
+
+/* ===== COLLAGE ===== */
+#collage {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 22px;
+  padding-top: 20px;
+}
+
+/* ===== FOTOS POLAROID ===== */
+.foto {
+  background: white;
+  padding: 10px;
+  border-radius: 18px;
+  box-shadow: 0 18px 30px rgba(0,0,0,0.18);
+  animation: flotar 6s ease-in-out infinite;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.foto img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* movimiento suave */
+@keyframes flotar {
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+/* hover */
+.foto:hover {
+  transform: scale(1.15) rotate(0deg);
+  box-shadow: 0 25px 45px rgba(0,0,0,0.35);
+  z-index: 10;
+}
+
+/* ===== CORAZÓN DISCRETO ===== */
+.foto::after {
+  content: "♡";
+  position: absolute;
+  bottom: 8px;
+  right: 12px;
+  font-size: 1.4rem;
+  color: #ff758f;
+  opacity: 0.8;
+}
+
+/* ===== TEXTO ===== */
+#estado {
+  margin-top: 12px;
+  text-align: center;
+  font-weight: 500;
+  color: #a4133c;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .foto img {
+    height: 130px;
+  }
+}
